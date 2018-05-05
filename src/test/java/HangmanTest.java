@@ -9,5 +9,8 @@ public class HangmanTest {
         Hangman hangman = new Hangman("moringa");
         assertNotNull(hangman);
     }
-    
+    @Test (expected = IllegalArgumentException.class)
+    public void testNoCharacterOrNumber_Submitted(){
+        Hangman hangman = new Hangman("");
+    }
 } 
