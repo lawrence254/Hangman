@@ -26,15 +26,11 @@ public class Hangman {
     }
     public String randomWord(){
         String selectedWord = this.words[position];
-        // System.out.println("Selected word is:"+selectedWord);
-        this.randomised = selectedWord;
-        // System.out.println(Arrays.toString(randomised.toCharArray()));
-        // System.out.println("Random word is:"+randomised);               
+        this.randomised = selectedWord;           
         return this.randomised;        
     }
     public String convertWordToArray(){
         Hangman hangman = new Hangman(randomWord());
-        // System.out.println("Starting conversion on "+hangman.randomised);
         char[] characters = randomised.toCharArray();
         this.newChars = characters;
         System.out.println("New chars is: "+Arrays.toString(this.newChars));
@@ -42,6 +38,9 @@ public class Hangman {
         System.out.println("Final: "+finalValue);
         System.out.println("Submitting "+finalValue);        
         return finalValue;
+    }
+    public String changeToAsterisk(){
+        return this.replacedString;
     }
 
 }

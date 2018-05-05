@@ -29,4 +29,10 @@ public class HangmanTest {
         String newExpected = Arrays.toString(expected.toCharArray());
         assertEquals(newExpected, hangman.convertWordToArray());
     }
+    @Test
+    public void test_ReplaceCharactersWithAsterisks(){
+        Hangman hangman = new Hangman("Robot");
+        String expected = "*****";
+        assertEquals(expected, hangman.changeToAsterisk());
+    }
 } 
