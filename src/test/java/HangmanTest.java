@@ -1,6 +1,8 @@
 import org.junit.Test;
 import static org.junit.Assert.*;
 
+import java.util.Arrays;
+
 
 public class HangmanTest {
 
@@ -19,5 +21,12 @@ public class HangmanTest {
     Hangman hangman = new Hangman("l");
     String expected = "Robot";
     assertEquals(expected,hangman.randomWord());
+    }
+    @Test
+    public void test_convertWordToArrayOfCharacters() {
+        Hangman hangman = new Hangman("Robot");
+        String expected = "Robot";
+        String newExpected = Arrays.toString(expected.toCharArray());
+        assertEquals(newExpected, hangman.convertWordToArray());
     }
 } 
