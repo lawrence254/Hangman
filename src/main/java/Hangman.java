@@ -1,8 +1,11 @@
 import java.lang.IllegalArgumentException;
 import java.util.Random;
 public class Hangman {
+    Random random = new Random();
     String[] words = { "Terminator", "Slicer","Ninja", "cow", "Robot", "littlegirl" };
-    String name = words[(int) (Math.random() * words.length)];
+    int position = random.nextInt(words.length);
+
+    private String randomWord;
     private String letter;
 
     public Hangman(String input){
@@ -16,5 +19,9 @@ public class Hangman {
     }
     public String getChar(){
         return this.letter;
+    }
+    public String randomWord(){
+        randomWord = this.words[position];
+        return randomWord;
     }
 }

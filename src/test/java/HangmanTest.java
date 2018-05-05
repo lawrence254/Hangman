@@ -13,4 +13,11 @@ public class HangmanTest {
     public void testNoCharacterOrNumber_Submitted(){
         Hangman hangman = new Hangman("");
     }
+    // Test for random picking of word
+    @Test
+    public void test_RandomWordReturned(){
+    Hangman hangman = new Hangman("l");
+    String expected = "Robot";
+    assertEquals(expected,hangman.randomWord());
+    }
 } 
