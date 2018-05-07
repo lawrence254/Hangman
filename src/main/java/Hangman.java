@@ -38,21 +38,28 @@ public class Hangman {
         this.finalValue = Arrays.toString(this.newChars);
         System.out.println("Final: "+this.finalValue);
         System.out.println("Submitting "+this.finalValue);   
-        Hangman hangman2=new Hangman(changeToAsterisk(this.finalValue));                   
+        // Hangman hangman2=new Hangman(changeToAsterisk(this.finalValue));                   
         return this.finalValue;
     }
     public String changeToAsterisk(String inpuString){  
-        System.out.println(inpuString);    
-        int strLen = inpuString.length();
-        StringBuilder sb = new StringBuilder(strLen);
-        for(int i = 1; i < strLen; i++){
-            sb.append('*');
-        }
+        // System.out.println(inpuString);    
+        // int strLen = inpuString.length();
+        // StringBuilder sb = new StringBuilder(strLen);
+        // for(int i = 1; i < strLen; i++){
+        //     sb.append('*');
+        // }
         
-        System.out.println("Word is: "+ inpuString);
-        System.out.println("Length: "+strLen);
-        this.replacedString = sb.toString();
-        return this.replacedString;
+        // System.out.println("Word is: "+ inpuString);
+        // System.out.println("Length: "+strLen);
+        // this.replacedString = sb.toString();
+        // return this.replacedString;
+        StringBuffer sb = new StringBuffer();
+    for (int x = 0; x < inpuString.length(); x++) {
+        sb.append("*");
+    }
+    System.out.println("Chars are: "+sb.toString());
+    System.out.println("Original word is: "+inpuString);
+    return sb.toString();
     }
 
 }
