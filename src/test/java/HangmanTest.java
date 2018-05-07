@@ -35,4 +35,10 @@ public class HangmanTest {
         String expected = "*****";
         assertEquals(expected, hangman.changeToAsterisk("Robot"));
     }
+    @Test
+    public void test_guessCorrectWords(){
+        Hangman hangman = new Hangman("Robot");
+        String expected = "-o-o-";
+        assertEquals(expected, hangman.guessCorrectWord());
+    }
 } 
