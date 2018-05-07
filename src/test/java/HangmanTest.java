@@ -33,6 +33,6 @@ public class HangmanTest {
     public void test_ReplaceCharactersWithAsterisks(){
         Hangman hangman = new Hangman("Robot");
         String expected = "*****";
-        assertEquals(expected, hangman.changeToAsterisk());
+        assertEquals(expected, hangman.changeToAsterisk(""));
     }
 } 

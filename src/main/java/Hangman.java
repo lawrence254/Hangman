@@ -11,6 +11,7 @@ public class Hangman {
     public String randomised;    
     private String replacedString;
     private char[] newChars;
+    private String finalValue;
  
     public Hangman(String input){
 
@@ -34,12 +35,23 @@ public class Hangman {
         char[] characters = randomised.toCharArray();
         this.newChars = characters;
         System.out.println("New chars is: "+Arrays.toString(this.newChars));
-        String finalValue = Arrays.toString(this.newChars);
-        System.out.println("Final: "+finalValue);
-        System.out.println("Submitting "+finalValue);        
-        return finalValue;
+        this.finalValue = Arrays.toString(this.newChars);
+        System.out.println("Final: "+this.finalValue);
+        System.out.println("Submitting "+this.finalValue);   
+        Hangman hangman2=new Hangman(changeToAsterisk(this.finalValue));                   
+        return this.finalValue;
     }
-    public String changeToAsterisk(){
+    public String changeToAsterisk(String inpuString){  
+        System.out.println(inpuString);    
+        int strLen = inpuString.length();
+        StringBuilder sb = new StringBuilder(strLen);
+        for(int i = 1; i < strLen; i++){
+            sb.append('*');
+        }
+        
+        System.out.println("Word is: "+ inpuString);
+        System.out.println("Length: "+strLen);
+        this.replacedString = sb.toString();
         return this.replacedString;
     }
 
