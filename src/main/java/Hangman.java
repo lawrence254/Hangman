@@ -5,9 +5,8 @@ import java.util.Scanner;
 
 public class Hangman {
     Random random = new Random();
-    String[] words = {"robot","mase","technology","going"};
-    int position = random.nextInt(words.length);
-    Scanner scanner = new Scanner(System.in);
+    private String selectedTerm;
+
 
     private String letter;
     public String randomised;    
@@ -19,32 +18,44 @@ public class Hangman {
     private String userGueses;
     private int MaxLength = 0;
  
-    public Hangman(String input){
-        randomWord();
-        changeToAsterisk();
-        // getChar(input);
-        if (input.length()>0 && input.matches("[a-zA-Z]+")) {
-            this.letter= input;
-                
-        } else {
-            throw new IllegalArgumentException("Can't accept empty string");
-        }
+    public void startGame(){
+        String[] terms = {"robot","mase","technology","java"};
+        int position = random.nextInt(terms.length);
+        selectedTerm = terms[position];
     }
+
+    public String getTerm(){
+        return selectedTerm;
+    }
+    
+
+
+    // public Hangman(){
+    //     randomWord();
+    //     changeToAsterisk();
+    //     // getChar(input);
+    //     if (input.length()>0 && input.matches("[a-zA-Z]+")) {
+    //         this.letter= input;
+                
+    //     } else {
+    //         throw new IllegalArgumentException("Can't accept empty string");
+    //     }
+    // }
     public String getChar(String guessLetter){
         guessCorrectWord();
         return this.letter=guessLetter;
     }
 
     //Can be in the constructor since its run only once/initialize method in the constructor
-    public String randomWord(){
-        String selectedWord = this.words[position];
-        System.out.println("Selected word is: "+selectedWord);
-        this.randomised = selectedWord;           
-        return this.randomised;        
-    }
+    // public String randomWord(){
+    //     String selectedWord = this.words[position];
+    //     System.out.println("Selected word is: "+selectedWord);
+    //     this.randomised = selectedWord;           
+    //     return randomised;        
+    // }
     public String convertWordToArray(){
-        this.characters = randomised.toCharArray();
-        this.newChars = this.characters;
+        characters = randomised.toCharArray();
+        newChars = this.characters;
         System.out.println("New chars is: "+Arrays.toString(this.newChars));
         this.finalValue = Arrays.toString(this.newChars);
         System.out.println("Final: "+this.finalValue);
@@ -65,19 +76,19 @@ public class Hangman {
     }
 
     public String guessCorrectWord(){
+        char[] answer=replacedString.toCharArray();
         System.out.println("Enter a character to guess: ");
         // char guessWord = scanner.next().charAt(0);
-        char guessWord = 'o';
-        String selectedWord = new String(this.characters);
-        System.out.println("ss;"+selectedWord);
+        // char guessWord = 'o';
+        String selectedWord = new String(replacedString);
         StringBuilder builder = new StringBuilder(selectedWord);
-        for (int i = 0; i < characters.length; i++) {
-            if (guessWord == characters[i]) {
-                builder.setCharAt(i,guessWord);
-                System.out.println("replcing: "+i+ " with "+guessWord);
-            }
+        // for (int i = 0; i<characters.length; i++) {
+        //     if (guessWord == characters[i]) {
+        //         builder.setCharAt(i,guessWord);
+        //         System.out.println("replacing: "+i+ " with "+guessWord);
+        //     }
 
-        }
+        // }
             // Maintain below code
             // this.userGueses = replacedString.replace((Arrays.toString(characters)), "o");
             // System.out.println("user guess: "+this.userGueses);
